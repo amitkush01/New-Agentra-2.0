@@ -35,92 +35,93 @@ export default function AboutUs({ isDarkMode, isHovering, setIsHovering }: About
   ];
 
   return (
-    <section id="about" className="py-20 max-w-7xl mx-auto px-6">
+    <section id="about" className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
       <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: 30 }}
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 bg-clip-text text-transparent mb-6`}>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 bg-clip-text text-transparent mb-3">
           About Agentra
         </h2>
-        <p className={`text-xl md:text-2xl font-medium ${isDarkMode ? 'text-slate-300' : 'text-orange-700'} max-w-4xl mx-auto mb-8`}>
+        <p className={`text-base sm:text-lg font-medium ${isDarkMode ? 'text-slate-300' : 'text-orange-700'} max-w-3xl mx-auto mb-4`}>
           Leading the future of intelligent business automation
         </p>
       </motion.div>
 
-      {/* Company Description */}
+      {/* Company Description & Mission */}
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
-        initial={{ opacity: 0, y: 30 }}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch mb-12"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="space-y-6">
-          <h3 className={`text-3xl md:text-4xl font-bold ${textClass} mb-6`}>
+        <div className="space-y-3 flex flex-col justify-center">
+          <h3 className={`text-2xl sm:text-3xl font-bold ${textClass} mb-2`}>
             Who We Are
           </h3>
-          <div className={`space-y-4 text-lg leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-orange-700'}`}>
+          <div className={`space-y-3 text-sm sm:text-base leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-orange-700'}`}>
             <p>
-              <strong className={textClass}>Agentra</strong> is a pioneering AI solutions company that specializes in creating intelligent, domain-specific agents for businesses across various industries.
+              <strong className={textClass}>Agentra</strong> is a pioneering AI solutions company specializing in domain-specific intelligent agents for businesses across industries.
             </p>
             <p>
-              We understand that every business has unique challenges and requirements. That&apos;s why we don&apos;t offer one-size-fits-all solutions. Instead, we develop customized AI agents that are specifically designed for your industry, your processes, and your goals.
+              We develop customized AI agents specifically tailored to your industry workflows, operational processes, and growth objectives.
             </p>
             <p>
-              Our team combines deep expertise in artificial intelligence, machine learning, and business process optimization to deliver solutions that not only automate tasks but also enhance decision-making and drive measurable business outcomes.
+              Our team combines deep AI engineering with operational expertise to deliver automation that enhances decision-making and drives measurable outcomes.
             </p>
           </div>
         </div>
 
+        {/* Mission Box (Compact) */}
         <motion.div
-          className={`p-8 rounded-3xl ${isDarkMode ? 'bg-slate-800/50' : 'bg-yellow-100/50'} border-2 ${isDarkMode ? 'border-slate-700' : 'border-yellow-200'}`}
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
+          className={`p-5 sm:p-6 rounded-2xl ${isDarkMode ? 'bg-slate-800/40 backdrop-blur-md border-slate-700/80' : 'bg-yellow-100/60 border-yellow-200'} border flex flex-col justify-center shadow-lg`}
+          whileHover={{ scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
-          <div className="text-6xl mb-4">🚀</div>
-          <h4 className={`text-2xl font-bold ${textClass} mb-4`}>Our Mission</h4>
-          <p className={`text-lg ${isDarkMode ? 'text-slate-300' : 'text-orange-700'}`}>
-            To democratize AI technology by making intelligent automation accessible, affordable, and effective for businesses of all sizes, while maintaining the highest standards of customization and quality.
+          <div className="text-3xl sm:text-4xl mb-2">🚀</div>
+          <h4 className={`text-xl font-bold ${textClass} mb-2`}>Our Mission</h4>
+          <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-orange-700'}`}>
+            To democratize AI technology by making intelligent automation accessible, affordable, and highly effective for businesses of all sizes, while maintaining top customization and performance standards.
           </p>
         </motion.div>
       </motion.div>
 
-      {/* Services Grid */}
+      {/* Services Grid (Compact 4-column layout) */}
       <motion.div
-        className="mb-16"
-        initial={{ opacity: 0, y: 30 }}
+        className="mb-12"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h3 className={`text-3xl md:text-4xl font-bold text-center ${textClass} mb-12`}>
+        <h3 className={`text-2xl sm:text-3xl font-bold text-center ${textClass} mb-6`}>
           What We Deliver
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`p-8 rounded-3xl border-2 transition-all duration-300 ${
+              className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 ${
                 isDarkMode
-                  ? 'bg-slate-800/50 border-slate-700 hover:border-yellow-500/50'
-                  : 'bg-yellow-50/50 border-yellow-200 hover:border-yellow-400'
-              } hover:shadow-2xl hover:scale-105`}
-              initial={{ opacity: 0, y: 30 }}
+                  ? 'bg-slate-800/40 backdrop-blur-md border-slate-700/70 hover:border-yellow-500/50 hover:bg-slate-800/60'
+                  : 'bg-yellow-50/60 border-yellow-200 hover:border-yellow-400'
+              } hover:shadow-xl hover:-translate-y-1`}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <div className="text-5xl mb-4">{service.icon}</div>
-              <h4 className={`text-2xl font-bold mb-3 ${textClass}`}>
+              <div className="text-3xl mb-2">{service.icon}</div>
+              <h4 className={`text-base sm:text-lg font-bold mb-1.5 ${textClass}`}>
                 {service.title}
               </h4>
-              <p className={`text-lg ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              <p className={`text-xs sm:text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 {service.description}
               </p>
             </motion.div>
@@ -128,37 +129,37 @@ export default function AboutUs({ isDarkMode, isHovering, setIsHovering }: About
         </div>
       </motion.div>
 
-      {/* Why Choose Us */}
+      {/* Why Choose Us (Compact Box) */}
       <motion.div
-        className={`p-8 rounded-3xl ${isDarkMode ? 'bg-slate-800/50' : 'bg-yellow-100/50'} border-2 ${isDarkMode ? 'border-slate-700' : 'border-yellow-200'}`}
-        initial={{ opacity: 0, y: 30 }}
+        className={`p-5 sm:p-6 rounded-2xl ${isDarkMode ? 'bg-slate-800/40 backdrop-blur-md border-slate-700/70' : 'bg-yellow-100/60 border-yellow-200'} border shadow-lg`}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h3 className={`text-3xl font-bold text-center ${textClass} mb-8`}>
+        <h3 className={`text-xl sm:text-2xl font-bold text-center ${textClass} mb-6`}>
           Why Businesses Choose Agentra
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="text-4xl mb-3">🎯</div>
-            <h4 className={`text-xl font-semibold ${textClass} mb-2`}>Customized Solutions</h4>
-            <p className={`text-sm ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-              Every AI agent is tailored to your specific business needs and industry requirements
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="text-center p-3 rounded-xl bg-slate-900/20">
+            <div className="text-2xl mb-1.5">🎯</div>
+            <h4 className={`text-sm font-bold ${textClass} mb-1`}>Customized Solutions</h4>
+            <p className={`text-xs ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              Every AI agent is tailored to your specific business needs and workflows.
             </p>
           </div>
-          <div className="text-center">
-            <div className="text-4xl mb-3">⚡</div>
-            <h4 className={`text-xl font-semibold ${textClass} mb-2`}>Rapid Implementation</h4>
-            <p className={`text-sm ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-              Quick deployment with minimal disruption to your existing operations
+          <div className="text-center p-3 rounded-xl bg-slate-900/20">
+            <div className="text-2xl mb-1.5">⚡</div>
+            <h4 className={`text-sm font-bold ${textClass} mb-1`}>Rapid Implementation</h4>
+            <p className={`text-xs ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              Quick deployment with minimal disruption to your operational pipelines.
             </p>
           </div>
-          <div className="text-center">
-            <div className="text-4xl mb-3">📈</div>
-            <h4 className={`text-xl font-semibold ${textClass} mb-2`}>Measurable Results</h4>
-            <p className={`text-sm ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-              Clear metrics and ROI tracking to demonstrate the value of your investment
+          <div className="text-center p-3 rounded-xl bg-slate-900/20">
+            <div className="text-2xl mb-1.5">📈</div>
+            <h4 className={`text-sm font-bold ${textClass} mb-1`}>Measurable Results</h4>
+            <p className={`text-xs ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              Clear metrics and ROI tracking demonstrating real automation value.
             </p>
           </div>
         </div>

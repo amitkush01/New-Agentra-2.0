@@ -104,11 +104,11 @@ export default function Header({
         </div>
         
         {/* Center: Nav */}
-        <nav className="hidden md:flex gap-8 items-center">
+        <nav className="hidden md:flex gap-8 lg:gap-10 items-center">
           {NAV_ITEMS.map((item, idx) => (
             <motion.button
               key={item.label}
-              className={`relative px-3 py-1.5 ${textClass} font-semibold text-base transition group`}
+              className={`relative px-3.5 py-1.5 ${textClass} font-semibold text-base transition group`}
               onClick={
                 item.label === 'Contact' ? onContact : 
                 item.label === 'About' ? onAbout : 
@@ -129,13 +129,13 @@ export default function Header({
         </nav>
         
         {/* Right: Theme Toggle & Login */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5 sm:gap-6">
           {/* Theme Toggle */}
           <motion.button
-            className={`w-10 h-10 rounded-lg ${isDarkMode ? 'bg-slate-800' : 'bg-slate-200'} flex items-center justify-center`}
+            className={`w-9 h-9 rounded-lg ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-slate-200'} flex items-center justify-center text-sm`}
             onClick={() => setIsDarkMode(!isDarkMode)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
@@ -145,17 +145,17 @@ export default function Header({
           {user ? (
             <div className="relative user-dropdown">
               <motion.button
-                className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-black px-5 py-3 rounded-xl shadow-lg hover:scale-105 transition"
+                className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold px-4 py-1.5 rounded-lg shadow-md hover:scale-105 transition text-sm"
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowUserDropdown(!showUserDropdown)}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm">
+                <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-xs">
                   {user.name?.charAt(0).toUpperCase() || 'U'}
                 </div>
                 <span className="hidden sm:block">{user.name}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </motion.button>
@@ -203,7 +203,7 @@ export default function Header({
             </div>
           ) : (
             <motion.button
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-black px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition relative text-lg"
+              className="bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 text-white font-bold px-4 py-1.5 rounded-lg shadow-md hover:scale-105 transition relative text-sm sm:text-base cursor-pointer"
               onClick={openLoginModal}
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovering(true)}

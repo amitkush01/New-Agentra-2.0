@@ -108,8 +108,8 @@ export default function HomePage() {
     }
   };
 
-  // Theme classes with yellow effect for light mode
-  const bgClass = isDarkMode ? 'bg-gradient-to-br from-slate-900 to-slate-800' : 'bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-100';
+  // Theme classes with transparent background for 3D space particle background
+  const bgClass = isDarkMode ? 'bg-transparent' : 'bg-gradient-to-br from-yellow-50/80 via-orange-50/80 to-amber-100/80';
 
   return (
     <div className={`min-h-screen ${bgClass} transition-all duration-500`}>

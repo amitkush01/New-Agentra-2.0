@@ -244,7 +244,7 @@ export default function AgentDetailPage() {
   }, [agentId]);
 
   const textClass = isDarkMode ? 'text-white' : 'text-slate-900';
-  const bgClass = isDarkMode ? 'bg-gradient-to-br from-slate-900 to-slate-800' : 'bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-100';
+  const bgClass = isDarkMode ? 'bg-transparent' : 'bg-gradient-to-br from-yellow-50/80 via-orange-50/80 to-amber-100/80';
 
   if (loading) {
     return (
