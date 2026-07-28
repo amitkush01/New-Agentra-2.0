@@ -78,37 +78,37 @@ export default function Header({
       initial={false}
       animate={{ height: scrolled ? 60 : 80 }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-6">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-3 sm:px-6">
         {/* Left: Logo */}
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center gap-3 group">
+        <div className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
             <img
               src="/images/logo.png"
               alt="Agentra Logo"
-              className="w-10 h-10 object-contain rounded-xl shadow-lg border border-yellow-500/40 group-hover:scale-105 transition"
+              className="w-7 h-7 sm:w-10 sm:h-10 object-contain rounded-xl shadow-lg border border-yellow-500/40 group-hover:scale-105 transition"
             />
             <motion.div 
-              className="flex items-center gap-2 cursor-pointer"
+              className="flex items-center gap-1.5 sm:gap-2 cursor-pointer"
               whileHover={{ scale: 1.04 }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <span className="font-black text-3xl sm:text-4xl tracking-wider uppercase bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(245,158,11,0.6)] font-sans">
+              <span className="font-black text-xl sm:text-3xl md:text-4xl tracking-wider uppercase bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(245,158,11,0.6)] font-sans">
                 AGENTRA
               </span>
-              <span className="px-2 py-0.5 text-[10px] font-black rounded-md bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 text-slate-950 shadow-lg tracking-widest border border-yellow-300/50">
+              <span className="px-1.5 py-0.5 text-[9px] sm:text-[10px] font-black rounded bg-gradient-to-r from-yellow-400 via-orange-500 to-amber-500 text-slate-950 shadow-lg tracking-widest border border-yellow-300/50">
                 AI
               </span>
             </motion.div>
           </Link>
         </div>
         
-        {/* Center: Nav */}
-        <nav className="hidden md:flex gap-8 lg:gap-10 items-center">
+        {/* Center: Nav (Desktop) */}
+        <nav className="hidden md:flex gap-6 lg:gap-10 items-center">
           {NAV_ITEMS.map((item, idx) => (
             <motion.button
               key={item.label}
-              className={`relative px-3.5 py-1.5 ${textClass} font-semibold text-base transition group`}
+              className={`relative px-3 py-1.5 ${textClass} font-semibold text-base transition group`}
               onClick={
                 item.label === 'Contact' ? onContact : 
                 item.label === 'About' ? onAbout : 
@@ -128,11 +128,11 @@ export default function Header({
           ))}
         </nav>
         
-        {/* Right: Theme Toggle & Login */}
-        <div className="flex items-center gap-5 sm:gap-6">
+        {/* Right: Theme Toggle, Login & Hamburger */}
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           {/* Theme Toggle */}
           <motion.button
-            className={`w-9 h-9 rounded-lg ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-slate-200'} flex items-center justify-center text-sm`}
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-slate-200'} flex items-center justify-center text-xs sm:text-sm`}
             onClick={() => setIsDarkMode(!isDarkMode)}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.92 }}
@@ -145,7 +145,7 @@ export default function Header({
           {user ? (
             <div className="relative user-dropdown">
               <motion.button
-                className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold px-4 py-1.5 rounded-lg shadow-md hover:scale-105 transition text-sm"
+                className="flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg shadow-md hover:scale-105 transition text-xs sm:text-sm"
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowUserDropdown(!showUserDropdown)}
                 onMouseEnter={() => setIsHovering(true)}
@@ -203,7 +203,7 @@ export default function Header({
             </div>
           ) : (
             <motion.button
-              className="bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 text-white font-bold px-4 py-1.5 rounded-lg shadow-md hover:scale-105 transition relative text-sm sm:text-base cursor-pointer"
+              className="bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 text-white font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg shadow-md hover:scale-105 transition text-xs sm:text-sm cursor-pointer"
               onClick={openLoginModal}
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovering(true)}
@@ -212,39 +212,19 @@ export default function Header({
               Login
             </motion.button>
           )}
-          
-          {/* "Learn More →" appears after login */}
-          <AnimatePresence>
-            {showLearnMore && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                className="absolute right-0 mt-16"
-              >
-                <motion.button
-                  className="flex items-center gap-2 text-white bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-2 rounded-lg shadow-lg font-bold"
-                  whileHover={{ x: 10 }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  Learn More →
-                </motion.button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+
+          {/* Mobile Hamburger Icon */}
+          <button
+            className={`md:hidden ${textClass} w-8 h-8 flex items-center justify-center rounded-lg border ${isDarkMode ? 'border-slate-700 bg-slate-800/80' : 'border-slate-300 bg-slate-100'} text-base font-bold`}
+            onClick={() => setShowMobileMenu((v) => !v)}
+            aria-label="Toggle Menu"
+          >
+            ☰
+          </button>
         </div>
-        
-        {/* Mobile Hamburger */}
-        <button
-          className={`md:hidden ${textClass} text-2xl`}
-          onClick={() => setShowMobileMenu((v) => !v)}
-        >
-          ☰
-        </button>
       </div>
       
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {showMobileMenu && (
           <motion.div
@@ -253,11 +233,11 @@ export default function Header({
             exit={{ y: -100, opacity: 0 }}
             className={`md:hidden mobile-menu ${isDarkMode ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-lg absolute top-full left-0 w-full z-50 border-t ${isDarkMode ? 'border-slate-700' : 'border-slate-200'}`}
           >
-            <nav className="flex flex-col gap-4 p-6">
+            <nav className="flex flex-col gap-3 p-5">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.label}
-                  className={`${textClass} text-left py-2 hover:text-yellow-600 transition-colors`}
+                  className={`${textClass} text-left py-2 px-3 rounded-lg hover:bg-yellow-500/10 hover:text-yellow-400 font-semibold transition-colors`}
                   onClick={() => {
                     if (item.label === 'Contact') onContact();
                     else if (item.label === 'About') onAbout();
@@ -270,7 +250,7 @@ export default function Header({
               ))}
               {!user && (
                 <button
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold px-5 py-2 rounded-lg shadow-lg mt-4"
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold px-5 py-2.5 rounded-lg shadow-lg mt-2 text-center"
                   onClick={() => {
                     openLoginModal();
                     setShowMobileMenu(false);
