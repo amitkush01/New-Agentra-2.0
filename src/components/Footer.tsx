@@ -108,10 +108,10 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-8 md:gap-8 mb-8 md:mb-12">
           
           {/* Brand Section */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -131,22 +131,22 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                 </h3>
               </div>
               
-              <p className={`text-sm leading-relaxed mb-4 md:mb-6 ${
+              <p className={`text-xs sm:text-sm leading-relaxed mb-4 md:mb-6 ${
                 isDarkMode ? 'text-slate-300' : 'text-orange-700'
               }`}>
                 Agentra specializes in domain-specific AI agent solutions. We deliver customized intelligent automation for marketing, HR, customer service, and business operations across multiple industries.
               </p>
 
               {/* Social Links */}
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.name}
                     href={social.href}
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg transition-all duration-300 ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-base sm:text-lg transition-all duration-300 ${
                       isDarkMode 
-                        ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white' 
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900'
+                        ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60' 
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200'
                     }`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
@@ -165,19 +165,19 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
           </div>
 
           {/* Product Links */}
-          <div>
+          <div className="col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className={`font-semibold mb-4 ${
+              <h4 className={`font-bold text-sm sm:text-base mb-3 md:mb-4 ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Product
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.product.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -188,7 +188,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                   >
                     <a
                       href={link.href}
-                      className={`text-sm transition-colors duration-200 hover:text-yellow-600 ${
+                      className={`text-xs sm:text-sm transition-colors duration-200 hover:text-yellow-600 ${
                         isDarkMode ? 'text-slate-400' : 'text-slate-600'
                       }`}
                       onMouseEnter={() => setIsHovering(true)}
@@ -203,19 +203,19 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
           </div>
 
           {/* Company Links */}
-          <div>
+          <div className="col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className={`font-semibold mb-4 ${
+              <h4 className={`font-bold text-sm sm:text-base mb-3 md:mb-4 ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Company
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.company.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -226,7 +226,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                   >
                     <a
                       href={link.href}
-                      className={`text-sm transition-colors duration-200 hover:text-yellow-600 ${
+                      className={`text-xs sm:text-sm transition-colors duration-200 hover:text-yellow-600 ${
                         isDarkMode ? 'text-slate-400' : 'text-slate-600'
                       }`}
                       onClick={(e) => {
@@ -247,19 +247,19 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
           </div>
 
           {/* Support Links */}
-          <div>
+          <div className="col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h4 className={`font-semibold mb-4 ${
+              <h4 className={`font-bold text-sm sm:text-base mb-3 md:mb-4 ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Support
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.support.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -270,7 +270,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                   >
                     <a
                       href={link.href}
-                      className={`text-sm transition-colors duration-200 hover:text-blue-500 ${
+                      className={`text-xs sm:text-sm transition-colors duration-200 hover:text-blue-500 ${
                         isDarkMode ? 'text-slate-400' : 'text-slate-600'
                       }`}
                       onMouseEnter={() => setIsHovering(true)}
@@ -285,19 +285,19 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
           </div>
 
           {/* Legal Links */}
-          <div>
+          <div className="col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h4 className={`font-semibold mb-4 ${
+              <h4 className={`font-bold text-sm sm:text-base mb-3 md:mb-4 ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Legal
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.legal.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -308,7 +308,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                   >
                     <a
                       href={link.href}
-                      className={`text-sm transition-colors duration-200 hover:text-blue-500 ${
+                      className={`text-xs sm:text-sm transition-colors duration-200 hover:text-blue-500 ${
                         isDarkMode ? 'text-slate-400' : 'text-slate-600'
                       }`}
                       onMouseEnter={() => setIsHovering(true)}
@@ -323,19 +323,19 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="col-span-2 sm:col-span-1 lg:col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <h4 className={`font-semibold mb-4 ${
+              <h4 className={`font-bold text-sm sm:text-base mb-3 md:mb-4 ${
                 isDarkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Contact
               </h4>
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -344,7 +344,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                 >
                   <a
                     href={`mailto:${settings.contactEmail}`}
-                    className={`text-sm transition-colors duration-200 hover:text-yellow-600 ${
+                    className={`text-xs sm:text-sm transition-colors duration-200 hover:text-yellow-600 break-all ${
                       isDarkMode ? 'text-slate-400' : 'text-slate-600'
                     }`}
                     onMouseEnter={() => setIsHovering(true)}
@@ -359,7 +359,7 @@ export default function Footer({ isDarkMode, isHovering, setIsHovering, onAbout 
                   transition={{ duration: 0.4, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <span className={`text-sm ${
+                  <span className={`text-xs sm:text-sm ${
                     isDarkMode ? 'text-slate-400' : 'text-slate-600'
                   }`}>
                     🌍 Available 24/7
