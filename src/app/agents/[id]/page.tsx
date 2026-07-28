@@ -393,19 +393,23 @@ export default function AgentDetailPage() {
             viewport={{ once: true }}
             className="relative max-w-3xl mx-auto rounded-2xl overflow-hidden border border-yellow-500/40 shadow-[0_0_40px_rgba(245,158,11,0.25)] bg-slate-900/90 backdrop-blur-2xl p-3 sm:p-5 flex flex-col items-center"
           >
+            {/* 3D Image Box (Clean without overlaid text) */}
             <div className="w-full aspect-[16/9] rounded-xl overflow-hidden relative group border border-slate-700 shadow-xl">
               <img
                 src={agent.photo_url || getAgent3DImage(agent.id, agent.type)}
                 alt={`${agent.name} 3D Neural Showcase`}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 flex flex-col justify-end p-4 sm:p-6">
-                <span className="px-2.5 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300 font-bold text-[10px] border border-yellow-500/30 w-fit mb-1.5">
+            </div>
+            
+            {/* Text Details (OUTSIDE 3D Image Box) */}
+            <div className="w-full mt-4 pt-3 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+              <div>
+                <span className="px-2.5 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300 font-bold text-[10px] border border-yellow-500/30 w-fit inline-block mb-1.5">
                   AUTONOMOUS NEURAL CORE
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-white">{agent.name} 3D Model</h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-lg">
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
                   Equipped with real-time multi-channel data processing and adaptive neural intelligence.
                 </p>
               </div>

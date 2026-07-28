@@ -172,38 +172,38 @@ export default function AIAgents({ isDarkMode, isMobile, isHovering, setIsHoveri
               
               {/* Agent Icon/Photo */}
           <motion.div
-            className="flex justify-center mb-4 md:mb-6"
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            className="flex justify-center mb-6 md:mb-8"
+            whileHover={{ scale: 1.06, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
-                {agent.photo_url ? (
-                  <div className="relative">
-                    <img 
-                      src={agent.photo_url} 
-                      alt={agent.name}
-                      className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover shadow-lg border-4 border-white/20"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl ${
-                      isDarkMode 
-                        ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20' 
-                        : 'bg-gradient-to-br from-blue-100 to-purple-100'
-                    } flex items-center justify-center text-4xl shadow-lg border-4 border-white/20 hidden`}>
-                      🤖
-                    </div>
-                  </div>
-                ) : (
-                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl ${
-              isDarkMode 
-                ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20' 
-                : 'bg-gradient-to-br from-blue-100 to-purple-100'
-                  } flex items-center justify-center text-4xl shadow-lg border-4 border-white/20`}>
-                    🤖
-            </div>
-                )}
+            {agent.photo_url ? (
+              <div className="relative">
+                <img 
+                  src={agent.photo_url} 
+                  alt={agent.name}
+                  className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl object-cover shadow-[0_0_30px_rgba(245,158,11,0.3)] border-4 border-yellow-500/40"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <div className={`w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl ${
+                  isDarkMode 
+                    ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20' 
+                    : 'bg-gradient-to-br from-blue-100 to-purple-100'
+                } flex items-center justify-center text-6xl md:text-7xl shadow-lg border-4 border-yellow-500/40 hidden`}>
+                  🤖
+                </div>
+              </div>
+            ) : (
+              <div className={`w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl ${
+                isDarkMode 
+                  ? 'bg-gradient-to-br from-blue-500/20 to-purple-500/20' 
+                  : 'bg-gradient-to-br from-blue-100 to-purple-100'
+              } flex items-center justify-center text-6xl md:text-7xl shadow-lg border-4 border-yellow-500/40`}>
+                🤖
+              </div>
+            )}
           </motion.div>
 
           {/* Agent Title */}
