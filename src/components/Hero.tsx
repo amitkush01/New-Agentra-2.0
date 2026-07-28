@@ -125,11 +125,6 @@ export default function Hero({ isDarkMode, isMobile, isHovering, setIsHovering, 
               alt="Agentra 3D AI Assistant"
               className="w-[90%] h-[90%] object-cover rounded-full shadow-[0_0_35px_rgba(245,158,11,0.5)] border-4 border-yellow-400/40 relative z-10 group-hover:scale-105 transition duration-500"
             />
-
-            {/* Live Audio Badge */}
-            <div className="absolute -bottom-1 right-1 sm:-bottom-2 sm:right-2 z-20 px-2.5 py-1 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-950 font-black text-[10px] shadow-lg flex items-center gap-1">
-              <span>🔊</span> 100% Voice Interactive
-            </div>
           </motion.div>
 
           {/* Bottom Status Card */}
