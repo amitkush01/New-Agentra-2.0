@@ -63,7 +63,7 @@ export default function AIAssistant3D() {
     {
       id: 'init-1',
       sender: 'ai',
-      text: 'Hello! I am Maya, your Agentra AI Girl Assistant. Please select one of the topics below or ask a question!',
+      text: 'Hello! I am your Agentra AI Assistant. Please select one of the topics below or ask a question!',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -235,7 +235,7 @@ export default function AIAssistant3D() {
                 </div>
                 <div>
                   <h3 className="font-bold text-xs sm:text-sm text-yellow-400 flex items-center gap-1">
-                    Maya AI Assistant
+                    Agentra AI Assistant
                     <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">
                       LIVE 🔊
                     </span>

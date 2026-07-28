@@ -94,7 +94,7 @@ export default function Hero({ isDarkMode, isMobile, isHovering, setIsHovering, 
           <div className="w-full flex justify-between items-center z-10">
             <span className="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 font-black text-[10px] sm:text-xs tracking-wider border border-yellow-500/40 uppercase shadow-md flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
-              ⚡ Maya 3D Neural Voice Intelligence
+              ⚡ Agentra 3D Neural Intelligence
             </span>
             <span className="text-[10px] font-bold text-slate-400 bg-slate-950/60 px-2 py-0.5 rounded-md border border-slate-700 hidden sm:block">
               v2.5 PRO
@@ -122,7 +122,7 @@ export default function Hero({ isDarkMode, isMobile, isHovering, setIsHovering, 
             {/* 3D Image */}
             <img
               src="/images/ai_agent_3d_showcase.png"
-              alt="Maya 3D Voice Assistant"
+              alt="Agentra 3D AI Assistant"
               className="w-[90%] h-[90%] object-cover rounded-full shadow-[0_0_35px_rgba(245,158,11,0.5)] border-4 border-yellow-400/40 relative z-10 group-hover:scale-105 transition duration-500"
             />
 
@@ -137,7 +137,7 @@ export default function Hero({ isDarkMode, isMobile, isHovering, setIsHovering, 
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-ping shrink-0"></div>
               <div>
-                <h4 className="text-xs font-bold text-yellow-300">Maya AI Voice Assistant</h4>
+                <h4 className="text-xs font-bold text-yellow-300">Agentra 3D AI Assistant</h4>
                 <p className="text-[10px] text-slate-400">24/7 Autonomous Multi-Agent Core</p>
               </div>
             </div>
