@@ -208,7 +208,7 @@ export default function AIAssistant3D() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       {/* Expanded Chat Window */}
       <AnimatePresence>
         {isOpen && (
@@ -217,41 +217,41 @@ export default function AIAssistant3D() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="w-96 sm:w-[420px] h-[550px] bg-slate-900/95 backdrop-blur-2xl border-2 border-yellow-500/40 rounded-3xl shadow-[0_0_50px_rgba(245,158,11,0.25)] flex flex-col overflow-hidden text-white mb-4"
+            className="w-[calc(100vw-2rem)] max-w-[360px] sm:w-[380px] h-[460px] sm:h-[510px] bg-slate-900/95 backdrop-blur-2xl border border-yellow-500/40 rounded-2xl sm:rounded-3xl shadow-[0_0_40px_rgba(245,158,11,0.2)] flex flex-col overflow-hidden text-white mb-3"
           >
             {/* Header */}
-            <div className="p-4 bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-slate-900 border-b border-yellow-500/30 flex justify-between items-center">
-              <div className="flex items-center space-x-3">
-                <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-orange-500 to-red-500 p-0.5 shadow-lg shadow-orange-500/30">
-                  <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center text-lg">
+            <div className="p-3 sm:p-4 bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-slate-900 border-b border-yellow-500/30 flex justify-between items-center">
+              <div className="flex items-center space-x-2.5">
+                <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-yellow-400 via-orange-500 to-red-500 p-0.5 shadow-md">
+                  <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center text-sm sm:text-base">
                     👩‍💻
                   </div>
                   {isSpeaking && (
-                    <span className="absolute -bottom-1 -right-1 flex h-4 w-4">
+                    <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-4 w-4 bg-yellow-500"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                     </span>
                   )}
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm text-yellow-400 flex items-center gap-1.5">
+                  <h3 className="font-bold text-xs sm:text-sm text-yellow-400 flex items-center gap-1">
                     Maya AI Assistant
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">
-                      LIVE VOICE 🔊
+                    <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">
+                      LIVE 🔊
                     </span>
                   </h3>
-                  <p className="text-xs text-slate-400">Interactive AI Assistance & Topic Menu</p>
+                  <p className="text-[10px] sm:text-xs text-slate-400">Interactive AI Assistance</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1.5">
                 <button
                   onClick={() => {
                     setVoiceEnabled(!voiceEnabled);
                     if (isSpeaking) window.speechSynthesis.cancel();
                   }}
                   title={voiceEnabled ? 'Mute Voice' : 'Enable Voice'}
-                  className={`p-1.5 rounded-lg border transition ${
+                  className={`p-1 rounded-lg border text-xs transition ${
                     voiceEnabled
                       ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-300'
                       : 'bg-slate-800 border-slate-700 text-slate-500'
@@ -262,7 +262,7 @@ export default function AIAssistant3D() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+                  className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition text-xs"
                 >
                   ✕
                 </button>
@@ -270,7 +270,7 @@ export default function AIAssistant3D() {
             </div>
 
             {/* Chat Body */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-4 text-sm bg-slate-950/40">
+            <div className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 text-xs sm:text-sm bg-slate-950/40">
               {messages.map(msg => (
                 <div
                   key={msg.id}
@@ -279,22 +279,22 @@ export default function AIAssistant3D() {
                   }`}
                 >
                   <div
-                    className={`max-w-[88%] p-3.5 rounded-2xl relative shadow-md ${
+                    className={`max-w-[90%] p-2.5 sm:p-3 rounded-xl relative shadow-md ${
                       msg.sender === 'user'
                         ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-950 font-medium rounded-br-none'
                         : 'bg-slate-800/90 border border-yellow-500/30 text-slate-100 rounded-bl-none'
                     }`}
                   >
-                    <p className="leading-relaxed whitespace-pre-wrap">{msg.text}</p>
+                    <p className="leading-relaxed whitespace-pre-wrap text-xs sm:text-sm">{msg.text}</p>
 
-                    {/* Audio Sound Button on every message bubble */}
-                    <div className="mt-2 pt-1 border-t border-slate-700/50 flex justify-between items-center text-[10px]">
+                    {/* Audio Sound Button */}
+                    <div className="mt-1.5 pt-1 border-t border-slate-700/50 flex justify-between items-center text-[9px]">
                       <span className={msg.sender === 'user' ? 'text-slate-900/70' : 'text-slate-400'}>
                         {msg.timestamp}
                       </span>
                       <button
                         onClick={() => speakText(msg.text, msg.id)}
-                        className={`flex items-center gap-1 px-2.5 py-1 rounded-md font-bold text-xs transition ${
+                        className={`flex items-center gap-1 px-2 py-0.5 rounded font-bold text-[10px] transition ${
                           speakingMsgId === msg.id && isSpeaking
                             ? 'bg-red-500 text-white animate-pulse'
                             : msg.sender === 'user'
@@ -303,7 +303,7 @@ export default function AIAssistant3D() {
                         }`}
                         title="Click to Listen Audio Sound"
                       >
-                        {speakingMsgId === msg.id && isSpeaking ? '⏹ Stop' : '🔊 Listen Audio'}
+                        {speakingMsgId === msg.id && isSpeaking ? '⏹ Stop' : '🔊 Listen'}
                       </button>
                     </div>
                   </div>
@@ -311,25 +311,25 @@ export default function AIAssistant3D() {
               ))}
 
               {isTyping && (
-                <div className="flex items-center space-x-2 text-yellow-400 text-xs italic">
-                  <div className="w-2 h-2 rounded-full bg-yellow-400 animate-bounce"></div>
-                  <div className="w-2 h-2 rounded-full bg-orange-400 animate-bounce [animation-delay:0.2s]"></div>
-                  <div className="w-2 h-2 rounded-full bg-red-400 animate-bounce [animation-delay:0.4s]"></div>
-                  <span>Maya is preparing response...</span>
+                <div className="flex items-center space-x-1.5 text-yellow-400 text-[11px] italic">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-bounce [animation-delay:0.2s]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-bounce [animation-delay:0.4s]"></div>
+                  <span>Maya is typing...</span>
                 </div>
               )}
 
               {/* Limited Quick Options Menu */}
-              <div className="pt-2">
-                <p className="text-[11px] font-bold text-yellow-400 mb-2 uppercase tracking-wider">
+              <div className="pt-1">
+                <p className="text-[10px] font-bold text-yellow-400 mb-1.5 uppercase tracking-wider">
                   Select a topic for instant answer:
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {LIMITED_OPTIONS.map(opt => (
                     <button
                       key={opt.id}
                       onClick={() => handleSelectOption(opt)}
-                      className="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-yellow-500/20 border border-yellow-500/30 text-yellow-300 text-xs font-semibold transition text-left hover:scale-[1.02]"
+                      className="px-2.5 py-1 rounded-lg bg-slate-800/90 hover:bg-yellow-500/20 border border-yellow-500/30 text-yellow-300 text-[11px] font-medium transition text-left hover:scale-[1.02]"
                     >
                       {opt.label}
                     </button>
@@ -341,18 +341,18 @@ export default function AIAssistant3D() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 bg-slate-900 border-t border-yellow-500/30 flex items-center space-x-2">
+            <div className="p-2.5 bg-slate-900 border-t border-yellow-500/30 flex items-center space-x-1.5">
               <input
                 type="text"
                 value={inputText}
                 onChange={e => setInputText(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && handleSend()}
                 placeholder="Ask Maya girl assistant..."
-                className="flex-1 px-4 py-2.5 bg-slate-950 border border-slate-700 focus:border-yellow-500 rounded-xl text-sm outline-none text-white placeholder-slate-500"
+                className="flex-1 px-3 py-1.5 bg-slate-950 border border-slate-700 focus:border-yellow-500 rounded-lg text-xs outline-none text-white placeholder-slate-500"
               />
               <button
                 onClick={handleSend}
-                className="px-4 py-2.5 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-slate-950 font-bold rounded-xl shadow-lg transition text-xs"
+                className="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-slate-950 font-bold rounded-lg shadow-md transition text-xs"
               >
                 Send
               </button>
@@ -365,18 +365,18 @@ export default function AIAssistant3D() {
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          whileHover={{ scale: 1.1, rotateZ: 5 }}
-          whileTap={{ scale: 0.9 }}
-          className="relative group flex items-center justify-center p-4 rounded-full bg-gradient-to-tr from-yellow-500 via-orange-500 to-red-500 shadow-[0_0_35px_rgba(245,158,11,0.5)] border-2 border-yellow-300/50 cursor-pointer"
+          whileHover={{ scale: 1.08, rotateZ: 5 }}
+          whileTap={{ scale: 0.92 }}
+          className="relative group flex items-center justify-center p-2.5 sm:p-3 rounded-full bg-gradient-to-tr from-yellow-500 via-orange-500 to-red-500 shadow-[0_0_25px_rgba(245,158,11,0.4)] border border-yellow-300/50 cursor-pointer"
         >
-          <span className="text-3xl">👩‍💻</span>
-          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+          <span className="text-xl sm:text-2xl">👩‍💻</span>
+          <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-300 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-yellow-400"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
           </span>
 
-          <div className="absolute right-full mr-3 hidden group-hover:flex items-center px-3 py-1.5 rounded-xl bg-slate-900 border border-yellow-500/40 text-yellow-400 text-xs font-bold whitespace-nowrap shadow-xl">
-            Talk with Maya Girl Assistant 🔊
+          <div className="absolute right-full mr-2.5 hidden group-hover:flex items-center px-2.5 py-1 rounded-lg bg-slate-900 border border-yellow-500/40 text-yellow-400 text-[11px] font-bold whitespace-nowrap shadow-lg">
+            Talk with Maya Assistant 🔊
           </div>
         </motion.button>
       )}
